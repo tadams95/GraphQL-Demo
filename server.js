@@ -12,8 +12,11 @@ const typesArray = loadFilesSync("**/*", {
   extensions: ["graphql"],
 });
 
+const resolversArray = loadFilesSync(path.join(__dirname, "**/*.resolvers.js"));
+
 const schema = makeExecutableSchema({
   typeDefs: typesArray,
+  resolvers: resolversArray,
 });
 
 const root = {
